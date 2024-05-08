@@ -3,10 +3,11 @@
 const std::string ROOT_PATH = "serve";
 const std::string DEFAULT_ROOT_OBJECT = "index.html";
 
-HTTPServer::HTTPServer()
+HTTPServer::HTTPServer(int port)
 {
-  tcp_socket = new TCPSocket(80);
-  tcp_socket->listen_on_socket(10);
+  this->port = port;
+  tcp_socket = new RAR::TCPSocket(port);
+  tcp_socket->listen_on_socket(1);
   run();
 }
 
@@ -24,13 +25,13 @@ void HTTPServer::read_request()
   }
 
   std::string requestString(buffer, bytes_read);
-  request = new Request(requestString);
+  request = new RAR::Request(requestString);
 }
 
 void HTTPServer::handle_request()
 {
   log_request();
-  response = new Response();
+  response = new RAR::Response();
 
   if (!is_method_supported(request->get_request_method()))
   {
@@ -63,9 +64,11 @@ void HTTPServer::send_response()
 
 void HTTPServer::run()
 {
+
+  std::cout << "Server listening on port: " << this->port << std::endl;
   while (true)
   {
-    std::cout << "============ WAITING ============" << std::endl;
+    std::cout << "========== WAITING ==========" << std::endl;
     read_request();
     handle_request();
     send_response();

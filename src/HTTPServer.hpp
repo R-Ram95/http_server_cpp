@@ -15,10 +15,10 @@ private:
 
     // Socket file descriptor
     int socket_fd;
-    TCPSocket *tcp_socket;
-
-    Request *request;
-    Response *response;
+    RAR::TCPSocket *tcp_socket;
+    RAR::Request *request;
+    RAR::Response *response;
+    int port;
 
     /**
      * @brief Accepts connection on the tcp port, and parses the request into
@@ -83,7 +83,7 @@ private:
     bool add_file_to_body(const std::string &file_path, const std::string &file_extension);
 
 public:
-    HTTPServer();
+    HTTPServer(int port);
     void run();
 };
 ;
