@@ -6,7 +6,9 @@
 #include <unordered_map>
 #include <unistd.h>
 #include <tuple>
-#include "rarlibc.hpp"
+#include <RAR/Request.hpp>
+#include <RAR/Response.hpp>
+#include <RAR/TCPSocket.hpp>
 
 class HTTPServer
 {
