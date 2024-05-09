@@ -13,7 +13,7 @@ file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.hpp")
 
 # make exectueable
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/../../customlib/lib/librar_libc.a)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/../../customlib/include)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/rarlibc/lib/librar_libc.a)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/rarlibc/include)
 
 
