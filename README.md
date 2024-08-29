@@ -1,3 +1,4 @@
 ## TODO
-
--[ ] use a cmake file to fix static linking of the library
+- [ ]  Make DockerFile
+- [ ]  Publish Docker Image to DockerHub
+- [ ]  Write IaC for HTTP server deployed on AWS (EC2)
